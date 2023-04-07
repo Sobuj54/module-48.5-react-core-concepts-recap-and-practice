@@ -25,16 +25,19 @@ function LoadPosts() {
   return (
     <div>
       {posts.map((post) => (
-        <Post name={post.name}></Post>
+        <Post post={post}></Post>
       ))}
     </div>
   );
 }
 
 function Post(props) {
+  const { name, email, body } = props.post;
   return (
     <div>
-      <h2>Name: {props.name}</h2>
+      <h2>Name: {name}</h2>
+      <h3>Email : {email}</h3>
+      <h4>Body : {body}</h4>
     </div>
   );
 }
