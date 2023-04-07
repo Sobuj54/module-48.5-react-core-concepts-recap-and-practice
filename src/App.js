@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   return (
@@ -8,6 +8,33 @@ function App() {
       <District name="Tangail" specialty="misti and shari"></District>
       <District name="Dhaka" specialty="biriyani"></District>
       <District name="Rajshahi" specialty="mango"></District>
+      <LoadPosts></LoadPosts>
+    </div>
+  );
+}
+
+function LoadPosts() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/comments")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+  }, []);
+
+  return (
+    <div>
+      {posts.map((post) => (
+        <Post name={post.name}></Post>
+      ))}
+    </div>
+  );
+}
+
+function Post(props) {
+  return (
+    <div>
+      <h2>Name: {props.name}</h2>
     </div>
   );
 }
