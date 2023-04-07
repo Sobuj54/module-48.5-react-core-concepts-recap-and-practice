@@ -25,7 +25,7 @@ function LoadPosts() {
   return (
     <div>
       {posts.map((post) => (
-        <Post post={post}></Post>
+        <Post post={post} key={post.id}></Post>
       ))}
     </div>
   );
