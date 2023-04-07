@@ -34,7 +34,13 @@ function LoadPosts() {
 function Post(props) {
   const { name, email, body } = props.post;
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "skyblue",
+        border: "5px solid aqua",
+        borderRadius: "20px",
+        margin: "20px",
+      }}>
       <h2>Name: {name}</h2>
       <h3>Email : {email}</h3>
       <h4>Body : {body}</h4>
