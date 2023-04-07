@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   return (
@@ -22,10 +23,19 @@ const componentStyle = {
 };
 
 function District(props) {
+  const [power, setPower] = useState(1);
+
+  const boostPower = () => setPower(power * 2);
+
+  const unboostPower = () => setPower(power / 2);
+
   return (
     <div style={componentStyle}>
       <h2>Name : {props.name}</h2>
       <h3>Specialty : {props.specialty}</h3>
+      <h4>Power : {power}</h4>
+      <button onClick={boostPower}>Boost Power 2x</button>
+      <button onClick={unboostPower}>Unboost Power 2x</button>
     </div>
   );
 }
